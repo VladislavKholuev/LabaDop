@@ -1,0 +1,13 @@
+C:\Users\mi\source\repos\LabaDop\LabaDop\bin\Debug\netcoreapp3.1\LabaDop.exe
+C:\Users\mi\source\repos\LabaDop\LabaDop\bin\Debug\netcoreapp3.1\LabaDop.deps.json
+C:\Users\mi\source\repos\LabaDop\LabaDop\bin\Debug\netcoreapp3.1\LabaDop.runtimeconfig.json
+C:\Users\mi\source\repos\LabaDop\LabaDop\bin\Debug\netcoreapp3.1\LabaDop.runtimeconfig.dev.json
+C:\Users\mi\source\repos\LabaDop\LabaDop\bin\Debug\netcoreapp3.1\LabaDop.dll
+C:\Users\mi\source\repos\LabaDop\LabaDop\bin\Debug\netcoreapp3.1\LabaDop.pdb
+C:\Users\mi\source\repos\LabaDop\LabaDop\obj\Debug\netcoreapp3.1\LabaDop.csprojAssemblyReference.cache
+C:\Users\mi\source\repos\LabaDop\LabaDop\obj\Debug\netcoreapp3.1\LabaDop.csproj.CoreCompileInputs.cache
+C:\Users\mi\source\repos\LabaDop\LabaDop\obj\Debug\netcoreapp3.1\LabaDop.AssemblyInfoInputs.cache
+C:\Users\mi\source\repos\LabaDop\LabaDop\obj\Debug\netcoreapp3.1\LabaDop.AssemblyInfo.cs
+C:\Users\mi\source\repos\LabaDop\LabaDop\obj\Debug\netcoreapp3.1\LabaDop.dll
+C:\Users\mi\source\repos\LabaDop\LabaDop\obj\Debug\netcoreapp3.1\LabaDop.pdb
+C:\Users\mi\source\repos\LabaDop\LabaDop\obj\Debug\netcoreapp3.1\LabaDop.genruntimeconfig.cache

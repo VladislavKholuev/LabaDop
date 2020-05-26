@@ -140,6 +140,8 @@ namespace LabaDop
 
         public int CompareTo(Fraction other)
         {
+            if (other == null)
+                throw new ArgumentNullException("null frac");
             if (Equals(other))
             {
                 return 0;

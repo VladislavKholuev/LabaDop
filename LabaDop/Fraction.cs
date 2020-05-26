@@ -7,7 +7,7 @@ namespace LabaDop
     public class Fraction
     {
         
-        public static double EPS = 0.000001;
+        //public static double EPS = 0.000001;
         private BigInteger numerator { get; set; }
         private BigInteger denominator { get; set; }
 
@@ -17,23 +17,23 @@ namespace LabaDop
             denominator = 1;
         }
 
-        public Fraction(int a)
+        public Fraction(BigInteger a)
         {
             numerator = a;
             denominator = 1;
         }
 
-        public Fraction(double num, double denom)
+        public Fraction(BigInteger num, BigInteger denom)
         {
-            if (Math.Abs(denom) < EPS)
+            if (denom.IsZero)
             {
                 throw new DivideByZeroException("denominator is 0");
             }
-            numerator = (BigInteger) Math.Abs(num);
-            denominator = (BigInteger) Math.Abs(denom);
+            numerator = BigInteger.Abs(num);
+            denominator = BigInteger.Abs(denom);
             if (num * denom < 0)
             {
-                numerator *= 1;
+                numerator *= -1;
             }
         }
 

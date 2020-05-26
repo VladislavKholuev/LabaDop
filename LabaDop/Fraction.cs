@@ -4,7 +4,7 @@ using System.Numerics;
 
 namespace LabaDop
 {
-    public class Fraction
+    public class Fraction:IComparable
     {
         
         //public static double EPS = 0.000001;
@@ -154,14 +154,17 @@ namespace LabaDop
             Fraction b = fraction.Reduce();
             return (a.numerator - b.numerator).IsZero  && (a.denominator - b.denominator).IsZero;
         }
-        private int CompareTo(Fraction frac)
+
+        public int CompareTo(object frac)
         {
-            if (Equals(frac))
+            Fraction f = frac as Fraction;
+            if(f == null) throw new Exception("cant compare");
+            if (Equals(f))
             {
                 return 0;
             }
             Fraction a = Reduce();
-            Fraction b = frac.Reduce();
+            Fraction b = f.Reduce();
             if (a.numerator  * b.denominator > b.numerator * a.denominator)
             {
                 return 1;

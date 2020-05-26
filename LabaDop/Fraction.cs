@@ -158,7 +158,7 @@ namespace LabaDop
         public int CompareTo(object frac)
         {
             Fraction f = frac as Fraction;
-            if(f == null) throw new Exception("cant compare");
+            if(f == null) throw new ArgumentNullException("cant compare");
             if (Equals(f))
             {
                 return 0;

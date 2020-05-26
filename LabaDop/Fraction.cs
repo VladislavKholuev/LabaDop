@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Dynamic;
+using System.Numerics;
 
 namespace LabaDop
 {
     public class Fraction
     {
+        
         public static double EPS = 0.000001;
-        private double numerator { get; set; }
-        private double denominator { get; set; }
+        private BigInteger numerator { get; set; }
+        private BigInteger denominator { get; set; }
 
         public Fraction()
         {
@@ -27,8 +29,8 @@ namespace LabaDop
             {
                 throw new DivideByZeroException("denominator is 0");
             }
-            numerator = Math.Abs(num);
-            denominator = Math.Abs(denom);
+            numerator = (BigInteger) Math.Abs(num);
+            denominator = (BigInteger) Math.Abs(denom);
             if (num * denom < 0)
             {
                 numerator *= 1;
@@ -85,13 +87,15 @@ namespace LabaDop
 
         public static Fraction Div(Fraction frac1, Fraction frac2)
         {
-            Fraction newFraction = new Fraction {denominator = Math.Abs(frac1.denominator * frac2.numerator)};
-
+            Fraction newFraction = new Fraction();
+            newFraction.denominator = BigInteger.Multiply(frac1.denominator, frac2.numerator);
+            if (newFraction.denominator < 0)
+                newFraction.denominator *= -1;
             if(frac1.denominator * frac2.numerator < 0)
                 newFraction.numerator = -1*frac1.numerator * frac2.denominator;
             else
                 newFraction.numerator = frac1.numerator * frac2.denominator;
-            if (Math.Abs(newFraction.denominator) < EPS)
+            if (newFraction.denominator.IsZero)
             {
                 throw new DivideByZeroException("В знаменателе не может быть нуля");
             }
@@ -105,21 +109,25 @@ namespace LabaDop
             return Div(frac1, frac2);
         }
 
-        private static double GetGreatestCommonDivisor(double a, double b)
+        private static BigInteger GetGreatestCommonDivisor(BigInteger a, BigInteger b)
         {
             while (b != 0)
             {
-                double temp = b;
+                BigInteger temp = b;
                 b = a % b;
                 a = temp;
             }
+
+            if (a < 0)
+                a *= -1;
+            
             return a;
         }
 
         public Fraction Reduce()
         {
             Fraction result = this;
-            double greatestCommonDivisor = Math.Abs(GetGreatestCommonDivisor(numerator, denominator));
+            BigInteger greatestCommonDivisor = GetGreatestCommonDivisor(numerator, denominator);
             result.numerator /= greatestCommonDivisor;
             result.denominator /= greatestCommonDivisor;
             return result;
@@ -144,7 +152,7 @@ namespace LabaDop
         {
             Fraction a = Reduce();
             Fraction b = fraction.Reduce();
-            return Math.Abs(a.numerator - b.numerator) < EPS && Math.Abs(a.denominator - b.denominator) < EPS;
+            return (a.numerator - b.numerator).IsZero  && (a.denominator - b.denominator).IsZero;
         }
         private int CompareTo(Fraction frac)
         {

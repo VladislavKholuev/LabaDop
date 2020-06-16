@@ -67,7 +67,7 @@ namespace LabaDop
 
         public static Fraction Module(ComplexNum com)
         {
-            return new Fraction(new Fraction(com.Re*com.Re)+(com.Im*com.Im)).GetSqrtFraction();
+            return new Fraction((com.Re*com.Re)+(com.Im*com.Im)).GetSqrtFraction();
         }
 
         public int CompareTo(object? obj)

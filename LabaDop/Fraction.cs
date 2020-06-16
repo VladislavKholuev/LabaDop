@@ -278,5 +278,10 @@ namespace LabaDop
         {
             return Sqrt(denominator);
         }
+
+        public Fraction GetSqrtFraction()
+        {
+            return new Fraction(GetSqrtNumerator(),GetSqrtDenominator());
+        }
     }
 }

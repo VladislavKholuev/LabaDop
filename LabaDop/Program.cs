@@ -19,9 +19,10 @@ namespace LabaDop
                 Console.WriteLine(a * b);
                 Console.WriteLine(a / b);
                 Console.WriteLine(a > b);
-
+                ComplexNum com = new ComplexNum(new Fraction(), new Fraction());
                 ComplexNum com1 = new ComplexNum(a,a);
                 ComplexNum com2 = new ComplexNum(b,b);
+                Console.WriteLine(com1/com);
                 Console.WriteLine(com1);
                 Console.WriteLine(com1+com2);
                 Console.WriteLine(com1-com2);

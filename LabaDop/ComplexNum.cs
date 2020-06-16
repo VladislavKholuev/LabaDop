@@ -52,7 +52,9 @@ namespace LabaDop
 
         public static ComplexNum Div(ComplexNum com1, ComplexNum com2)
         {
-          return new ComplexNum()
+            if(com2.Re.Equals(0))
+                throw new DivideByZeroException("В знаменателе не может быть нуля");
+            return new ComplexNum()
           {
               Re = (com1.Re*com2.Re+com1.Im*com2.Im)/(com2.Re*com2.Re + com2.Im*com2.Im),
               Im = (com1.Im*com2.Re + com2.Im*com1.Re)/(com2.Re * com2.Re + com2.Im * com2.Im)
@@ -65,7 +67,7 @@ namespace LabaDop
 
         public static Fraction Module(ComplexNum com)
         {
-            return new Fraction((com.Re*com.Re)+(com.Im*com.Im));
+            return new Fraction(new Fraction(com.Re*com.Re)+(com.Im*com.Im)).GetSqrtFraction();
         }
 
         public int CompareTo(object? obj)
